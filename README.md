@@ -83,3 +83,16 @@ for name, param in net.named_parameters():
         print("勾配計算なし。学習しない：", name)
 
 ```
+
+比較的最初の層の学習率は小さくする．
+最終そうに近づくほど学習率を大きくする．
+
+```python
+# 最適化手法の設定
+optimizer = optim.SGD([
+    {'params': params_to_update_1, 'lr': 1e-4},
+    {'params': params_to_update_2, 'lr': 5e-4},
+    {'params': params_to_update_3, 'lr': 1e-3}
+], momentum=0.9)
+
+```
