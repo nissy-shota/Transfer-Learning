@@ -215,6 +215,9 @@ CVやNLPなどの領域で最先端の性能をもつ様々な深層学習ネッ
 
 
 
+![](https://github.com/nissy-shota/Transfer-Learning/blob/main/Comprehensive-Hands-on-Guide/images/12.png)  
+![](https://github.com/nissy-shota/Transfer-Learning/blob/main/Comprehensive-Hands-on-Guide/images/13.png)  
+![](https://github.com/nissy-shota/Transfer-Learning/blob/main/Comprehensive-Hands-on-Guide/images/14.png)  
 Performance of off-the-shelf pre-trained models vs. specialized task-focused deep learning models
 
 事前にトレーニングされたモデルの昨日が非常に特殊なタスクに焦点を当てた深層学習モデルよりも一貫して優れていることが明確にわかる．
@@ -226,17 +229,20 @@ DNNは様々なハイパーパラメータをもつ高度に構成可能なア�
 次の図は顔認証問題の例で，ネットワークの初期の階層が非常に一般的な特徴を学習し，上位層が非常にタスクに特化した特徴を学習していることを示唆する．
 
 
+![](https://github.com/nissy-shota/Transfer-Learning/blob/main/Comprehensive-Hands-on-Guide/images/15.png)  
 
 
 この知識を利用して再トレーニング中に特定の層を固定したり残りの層を必要に応じて微調整したりすることができる．
 この場合ネットワークの全体的なアーキテクチャに関する知識を活用し，その状態を再学習ステップの出発点として使用する．
 これにより，少ない学習時間でより良いパフォーマンスを得ることができる．
 
-
+![](https://github.com/nissy-shota/Transfer-Learning/blob/main/Comprehensive-Hands-on-Guide/images/16.png)  
 
 ## Freezing or Fine-tuning?
 
+
 ネットワーク内のレイヤーをフリーズして昨日抽出昨日として使用する必用があるのか，それともプロセス内のレイヤーを微調整する必用があるのかという疑問が生じる
+![](https://github.com/nissy-shota/Transfer-Learning/blob/main/Comprehensive-Hands-on-Guide/images/17.png)  
 
 ## Pre-trained Models
 
