@@ -104,7 +104,76 @@ Computer Visionの領域では，エッジ、形状、コーナー、強度な�
   what, whenの答えがでたら，次は知識をドメインとタスクの間で実際に転移する方法のとく手に進みます．
   そのためには既存のアルゴリズムに変更を加えたり，様々なテクニックを駆使したりする必用がありますが，これについては本記事の最後で述べる．
   
-  
+## Transfer Learning Strategies
+
+転移学習には様々な戦略やテクニックがあり，ドメインやタスク，データの有無などに応じて適用する．
+転移学習に関する論文![A Survey on Transfer Learning](https://www.cse.ust.hk/~qyang/Docs/2009/tkde_transfer_learning.pdf)
+を参照すると良い．
+
+
+
+上記の図に基づいて転移学習の方法は，次のような従来のMLアルゴリズムのタイプに基づいて分類できる．
+- Inductive Transfer learning
+  ソースドメインとターゲットドメインは同じ
+  ソースタスクとドメインタスクはお互いに異なる．
+  アルゴリズムはソースドメインの帰納的バイアスを利用して，ターゲットタスクの改善に役立てようとする．
+  これは更に２つのサブカテゴリーに分けられ，それぞれマルチタスク学習と自己学習に似ている．
+- Unsupervised Transfer Learning
+  Inductive Transfer learningに似ている．ターゲットドメインにおける教師なしのタスクに焦点を当てている．
+  ソースドメインとターゲットドメインは似ているがタスクは異なる．
+  このシナリオではどちらかのドメインでラベル付きデータが利用できない．
+- Transductive Transfer Learning
+  このシナリオは，ソースタスクとターゲットタスクの間に類似性があるが，対応するドメインは異なる．
+  この設定では，ソースドメインには多くのラベル付きデータがあるが，ターゲットドメインにはラベルがない．
+  更に特徴空間が異なる場合や，marginal probabiliteiesが異なる場合に個々に分類される．
+
+We can summarize the different settings and scenarios for each of the above techniques in the following table.
+
+
+
+3つのtransfer categoriesはtransfer learningが適用され．研究できる設定の概要を示している．
+これらのカテゴリー感で何をtransferするかというアプローチを以下に示す．
+
+- Instance transfer
+  ソースドメインの知識をターゲットタスクに再利用する．もっとも理想的なシナリオ．
+  ソースドメインのデータを直接再利用することはできない．
+  ソースドメインから特定のインスタンスがあり，それをターゲットデータと一緒に再利用することで，結果を改善することができる．
+- Feature-representation transfer
+  この手法はソースドメインからターゲットドメインに利用できる優れた特徴表現を特定することで，ドメインの分岐を最小限に抑えエラー率を低減する．
+  特徴表現に基づくtransferにはラベル付きデータの有無に応じて教師あり，なしを適用できる．
+- Parameter transfer
+  関連するタスクのモデルがいくつかのパラメタやハイパーパラメタの事前分布を共有しているという前提が必用．
+  ソースタスクとターゲットタスクの療法を同時に学習するマルチタスクとは異なる．
+  transfer learningでは，全体のパフォーマンスを向上させるために，ターゲットドメインの損失に追加の重みを適用することもある．
+- Relational-knowledge transfer
+  前述のアプローチとは異なり，独立同一分布ではないデータや非IDデータを扱おうとするもの．
+  核で０他ポイントが他のデータポイントと関係を持っているようなデータ．
+  ソーシャルネットワークのデータに利用する．
+
+The following table clearly summarizes the relationship between different transfer learning strategies and what to transfer.
+
+
+
+
+transfer learning stategies and what to transfer summarizes
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
