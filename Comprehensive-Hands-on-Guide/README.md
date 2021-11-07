@@ -162,20 +162,37 @@ The following table clearly summarizes the relationship between different transf
 transfer learning stategies and what to transfer summarizes  
 
 
+## Transfer Learning for Deep Learning
+
+全セクションでは機械学習に適用できる一般的なアプローチ．
+深層学習の文脈で転移学習を適用できるのかという疑問が生じる．
 
 
 
+transfer learning in DL
+
+深層学習のモデルは帰納的学習と呼ばれるものの代表である．
+帰納的学習のアルゴリズムの目的は学習例のセットからマッピングを推論することである．
+例えば，分類の場合，モデルは入力特徴とクラスラベルの間のマッピングを学習する．
+このような学習機がunseenのデータに対してうまく一般化するためにはそのアルゴリズムは学習データの分布に関連する一連の過程を用いて動作する．
+この過程を帰納的バイアスと呼ぶ．帰納的バイアスや過程は制限する仮説空間や仮説空間の探索プロセスなど，複数の要因によって特徴づけられる．
+これらのバイアスは与えられたタスクやドメインに置いてモデルが何をどのように学習するかに影響を与える．
 
 
 
+transfer learning idea
+
+inductive transfer learning techniquesはソースタスクの帰納的バイアスをターゲットタスクの支援に利用する．
+これには，モデルの空間を限定してターゲとタスクの帰納的バイアスを調整したり，仮説空間を絞り込んだり，ソースタスクの知識を利用して探索プロセス自体を調整するなど様々な方法がある．
 
 
 
+inductive transfer
+
+iductive transferとは別に帰納的学習アルゴリズムはベイジアン及び階層的transfer手法を利用してターゲットタスクの学習とパフォーマンスの向上を支援．
 
 
-
-
-
+## Deep Transfer Learning Strategies
 
 
 
