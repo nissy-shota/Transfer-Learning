@@ -301,6 +301,7 @@ nlpタスクの場合性質が多様であるため，少し困難であるが�
 
 ### Multitask Learning
 
+![](https://github.com/nissy-shota/Transfer-Learning/blob/main/Comprehensive-Hands-on-Guide/images/18.png)  
 
 
 マルチタスク学習は、転移学習の世界でも少し変わった趣向を凝らしています。
