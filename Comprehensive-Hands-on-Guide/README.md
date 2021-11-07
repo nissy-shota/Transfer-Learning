@@ -78,8 +78,19 @@ Computer Visionの領域では，エッジ、形状、コーナー、強度な�
 
 > A domain, D, is defined as a two-element tuple consisting of feature space, χ, and marginal probability, P(Χ), where Χ is a sample data point. Thus, we can represent the domain mathematically as D = {χ, P(Χ)}
 
+![](https://github.com/nissy-shota/Transfer-Learning/blob/main/Comprehensive-Hands-on-Guide/images/1.png)
+
 ここで，xiは特定のベクトルを表す．一報タスクTはラベル空間ｙと目的関数ηの2要素タプルとして定義される．
 また目的関数は確率的な観点からPと表すことができる．
+
+![](https://github.com/nissy-shota/Transfer-Learning/blob/main/Comprehensive-Hands-on-Guide/images/2.png)
+
+![](https://github.com/nissy-shota/Transfer-Learning/blob/main/Comprehensive-Hands-on-Guide/images/3.png)
+![](https://github.com/nissy-shota/Transfer-Learning/blob/main/Comprehensive-Hands-on-Guide/images/4.png)
+![](https://github.com/nissy-shota/Transfer-Learning/blob/main/Comprehensive-Hands-on-Guide/images/5.png)
+
+
+
 
 転移学習とはソース学習器の知識をターゲとタスクに活用する能力を持つことである．
 - What to transfer
