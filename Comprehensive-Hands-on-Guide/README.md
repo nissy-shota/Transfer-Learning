@@ -167,7 +167,7 @@ transfer learning stategies and what to transfer summarizes
 全セクションでは機械学習に適用できる一般的なアプローチ．
 深層学習の文脈で転移学習を適用できるのかという疑問が生じる．
 
-
+![](https://github.com/nissy-shota/Transfer-Learning/blob/main/Comprehensive-Hands-on-Guide/images/9.png)  
 
 transfer learning in DL
 
@@ -179,6 +179,7 @@ transfer learning in DL
 これらのバイアスは与えられたタスクやドメインに置いてモデルが何をどのように学習するかに影響を与える．
 
 
+![](https://github.com/nissy-shota/Transfer-Learning/blob/main/Comprehensive-Hands-on-Guide/images/10.png)  
 
 transfer learning idea
 
@@ -186,6 +187,7 @@ inductive transfer learning techniquesはソースタスクの帰納的バイア
 これには，モデルの空間を限定してターゲとタスクの帰納的バイアスを調整したり，仮説空間を絞り込んだり，ソースタスクの知識を利用して探索プロセス自体を調整するなど様々な方法がある．
 
 
+![](https://github.com/nissy-shota/Transfer-Learning/blob/main/Comprehensive-Hands-on-Guide/images/11.png)  
 
 inductive transfer
 
