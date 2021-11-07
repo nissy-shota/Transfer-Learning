@@ -84,82 +84,82 @@ Computer Visionの領域では，エッジ、形状、コーナー、強度な�
 また目的関数は確率的な観点からPと表すことができる．
 
 ![](https://github.com/nissy-shota/Transfer-Learning/blob/main/Comprehensive-Hands-on-Guide/images/2.png)
-
 ![](https://github.com/nissy-shota/Transfer-Learning/blob/main/Comprehensive-Hands-on-Guide/images/3.png)
 ![](https://github.com/nissy-shota/Transfer-Learning/blob/main/Comprehensive-Hands-on-Guide/images/4.png)
 ![](https://github.com/nissy-shota/Transfer-Learning/blob/main/Comprehensive-Hands-on-Guide/images/5.png)
 
-
-
-
 転移学習とはソース学習器の知識をターゲとタスクに活用する能力を持つことである．
-- What to transfer
+- What to transfer  
   何を転移するか．ターゲットタスクのパフォーマンスを向上させるために，ソースからターゲットに知識のどの部分を転送することができるかという答えを求めようとする．
   知識の土の部分がソース特有のもので，何がソースとターゲットの間で共通しているかを特定する．
-- When to transfer
+- When to transfer  
   目的のために知識を転移すると何も改善されないどころか，自体が悪化する場合もある．negative transfer.
   目標とするタスクのパフォーマンスを向上させるために転移学習を利用することを目指すべきであり，劣化させるべきではない．
   いつ転送していつ転送しないかを慎重に判断する必用がある．
-- How to transfer
-  what, whenの答えがでたら，次は知識をドメインとタスクの間で実際に転移する方法のとく手に進みます．
+- How to transfer  
+  what, whenの答えがでたら，次は知識をドメインとタスクの間で実際に転移する方法のとく手に進みます．  
   そのためには既存のアルゴリズムに変更を加えたり，様々なテクニックを駆使したりする必用がありますが，これについては本記事の最後で述べる．
   
 ## Transfer Learning Strategies
 
-転移学習には様々な戦略やテクニックがあり，ドメインやタスク，データの有無などに応じて適用する．
+転移学習には様々な戦略やテクニックがあり，ドメインやタスク，データの有無などに応じて適用する．  
 転移学習に関する論文![A Survey on Transfer Learning](https://www.cse.ust.hk/~qyang/Docs/2009/tkde_transfer_learning.pdf)
-を参照すると良い．
+を参照すると良い．  
 
-![](https://github.com/nissy-shota/Transfer-Learning/blob/main/Comprehensive-Hands-on-Guide/images/6.png)
-
-
-
-上記の図に基づいて転移学習の方法は，次のような従来のMLアルゴリズムのタイプに基づいて分類できる．
-- Inductive Transfer learning
-  ソースドメインとターゲットドメインは同じ
-  ソースタスクとドメインタスクはお互いに異なる．
-  アルゴリズムはソースドメインの帰納的バイアスを利用して，ターゲットタスクの改善に役立てようとする．
-  これは更に２つのサブカテゴリーに分けられ，それぞれマルチタスク学習と自己学習に似ている．
-- Unsupervised Transfer Learning
-  Inductive Transfer learningに似ている．ターゲットドメインにおける教師なしのタスクに焦点を当てている．
-  ソースドメインとターゲットドメインは似ているがタスクは異なる．
-  このシナリオではどちらかのドメインでラベル付きデータが利用できない．
-- Transductive Transfer Learning
-  このシナリオは，ソースタスクとターゲットタスクの間に類似性があるが，対応するドメインは異なる．
-  この設定では，ソースドメインには多くのラベル付きデータがあるが，ターゲットドメインにはラベルがない．
-  更に特徴空間が異なる場合や，marginal probabiliteiesが異なる場合に個々に分類される．
-
-We can summarize the different settings and scenarios for each of the above techniques in the following table.
+![](https://github.com/nissy-shota/Transfer-Learning/blob/main/Comprehensive-Hands-on-Guide/images/6.png)  
 
 
-![](https://github.com/nissy-shota/Transfer-Learning/blob/main/Comprehensive-Hands-on-Guide/images/8.png)
 
-3つのtransfer categoriesはtransfer learningが適用され．研究できる設定の概要を示している．
-これらのカテゴリー感で何をtransferするかというアプローチを以下に示す．
+上記の図に基づいて転移学習の方法は，次のような従来のMLアルゴリズムのタイプに基づいて分類できる．  
 
-- Instance transfer
+- Inductive Transfer learning  
+  ソースドメインとターゲットドメインは同じ.  
+  ソースタスクとドメインタスクはお互いに異なる．  
+  アルゴリズムはソースドメインの帰納的バイアスを利用して，ターゲットタスクの改善に役立てようとする．  
+  これは更に２つのサブカテゴリーに分けられ，それぞれマルチタスク学習と自己学習に似ている．  
+  
+- Unsupervised Transfer Learning   
+  Inductive Transfer learningに似ている．ターゲットドメインにおける教師なしのタスクに焦点を当てている．  
+  ソースドメインとターゲットドメインは似ているがタスクは異なる．  
+  このシナリオではどちらかのドメインでラベル付きデータが利用できない．  
+  
+- Transductive Transfer Learning  
+  このシナリオは，ソースタスクとターゲットタスクの間に類似性があるが，対応するドメインは異なる．  
+  この設定では，ソースドメインには多くのラベル付きデータがあるが，ターゲットドメインにはラベルがない．  
+  更に特徴空間が異なる場合や，marginal probabiliteiesが異なる場合に個々に分類される．  
+
+We can summarize the different settings and scenarios for each of the above techniques in the following table.  
+
+
+![](https://github.com/nissy-shota/Transfer-Learning/blob/main/Comprehensive-Hands-on-Guide/images/8.png)  
+
+3つのtransfer categoriesはtransfer learningが適用され．研究できる設定の概要を示している．  
+これらのカテゴリー感で何をtransferするかというアプローチを以下に示す．  
+
+- Instance transfer  
+
   ソースドメインの知識をターゲットタスクに再利用する．もっとも理想的なシナリオ．
-  ソースドメインのデータを直接再利用することはできない．
-  ソースドメインから特定のインスタンスがあり，それをターゲットデータと一緒に再利用することで，結果を改善することができる．
-- Feature-representation transfer
-  この手法はソースドメインからターゲットドメインに利用できる優れた特徴表現を特定することで，ドメインの分岐を最小限に抑えエラー率を低減する．
-  特徴表現に基づくtransferにはラベル付きデータの有無に応じて教師あり，なしを適用できる．
-- Parameter transfer
-  関連するタスクのモデルがいくつかのパラメタやハイパーパラメタの事前分布を共有しているという前提が必用．
-  ソースタスクとターゲットタスクの療法を同時に学習するマルチタスクとは異なる．
-  transfer learningでは，全体のパフォーマンスを向上させるために，ターゲットドメインの損失に追加の重みを適用することもある．
-- Relational-knowledge transfer
-  前述のアプローチとは異なり，独立同一分布ではないデータや非IDデータを扱おうとするもの．
-  核で０他ポイントが他のデータポイントと関係を持っているようなデータ．
-  ソーシャルネットワークのデータに利用する．
+  ソースドメインのデータを直接再利用することはできない．  
+  ソースドメインから特定のインスタンスがあり，それをターゲットデータと一緒に再利用することで，結果を改善することができる．  
+- Feature-representation transfer  
+  この手法はソースドメインからターゲットドメインに利用できる優れた特徴表現を特定することで，ドメインの分岐を最小限に抑えエラー率を低減する．  
+  特徴表現に基づくtransferにはラベル付きデータの有無に応じて教師あり，なしを適用できる．  
+- Parameter transfer  
+  関連するタスクのモデルがいくつかのパラメタやハイパーパラメタの事前分布を共有しているという前提が必用．  
+  ソースタスクとターゲットタスクの療法を同時に学習するマルチタスクとは異なる．  
+  transfer learningでは，全体のパフォーマンスを向上させるために，ターゲットドメインの損失に追加の重みを適用することもある．  
+- Relational-knowledge transfer  
+  前述のアプローチとは異なり，独立同一分布ではないデータや非IDデータを扱おうとするもの．  
+  核で０他ポイントが他のデータポイントと関係を持っているようなデータ．  
+  ソーシャルネットワークのデータに利用する．  
 
-The following table clearly summarizes the relationship between different transfer learning strategies and what to transfer.
-
-
-![](https://github.com/nissy-shota/Transfer-Learning/blob/main/Comprehensive-Hands-on-Guide/images/7.png)
+The following table clearly summarizes the relationship between different transfer learning strategies and what to transfer.  
 
 
-transfer learning stategies and what to transfer summarizes
+![](https://github.com/nissy-shota/Transfer-Learning/blob/main/Comprehensive-Hands-on-Guide/images/7.png)  
+
+
+transfer learning stategies and what to transfer summarizes  
 
 
 
