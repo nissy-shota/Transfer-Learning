@@ -110,6 +110,8 @@ Computer Visionの領域では，エッジ、形状、コーナー、強度な�
 転移学習に関する論文![A Survey on Transfer Learning](https://www.cse.ust.hk/~qyang/Docs/2009/tkde_transfer_learning.pdf)
 を参照すると良い．
 
+![](https://github.com/nissy-shota/Transfer-Learning/blob/main/Comprehensive-Hands-on-Guide/images/6.png)
+
 
 
 上記の図に基づいて転移学習の方法は，次のような従来のMLアルゴリズムのタイプに基づいて分類できる．
@@ -130,6 +132,7 @@ Computer Visionの領域では，エッジ、形状、コーナー、強度な�
 We can summarize the different settings and scenarios for each of the above techniques in the following table.
 
 
+![](https://github.com/nissy-shota/Transfer-Learning/blob/main/Comprehensive-Hands-on-Guide/images/8.png)
 
 3つのtransfer categoriesはtransfer learningが適用され．研究できる設定の概要を示している．
 これらのカテゴリー感で何をtransferするかというアプローチを以下に示す．
@@ -153,6 +156,7 @@ We can summarize the different settings and scenarios for each of the above tech
 The following table clearly summarizes the relationship between different transfer learning strategies and what to transfer.
 
 
+![](https://github.com/nissy-shota/Transfer-Learning/blob/main/Comprehensive-Hands-on-Guide/images/7.png)
 
 
 transfer learning stategies and what to transfer summarizes
