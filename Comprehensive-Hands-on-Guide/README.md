@@ -171,20 +171,20 @@ transfer learning stategies and what to transfer summarizes
 
 transfer learning in DL
 
-深層学習のモデルは帰納的学習と呼ばれるものの代表である．
-帰納的学習のアルゴリズムの目的は学習例のセットからマッピングを推論することである．
-例えば，分類の場合，モデルは入力特徴とクラスラベルの間のマッピングを学習する．
-このような学習機がunseenのデータに対してうまく一般化するためにはそのアルゴリズムは学習データの分布に関連する一連の過程を用いて動作する．
-この過程を帰納的バイアスと呼ぶ．帰納的バイアスや過程は制限する仮説空間や仮説空間の探索プロセスなど，複数の要因によって特徴づけられる．
-これらのバイアスは与えられたタスクやドメインに置いてモデルが何をどのように学習するかに影響を与える．
+深層学習のモデルは帰納的学習と呼ばれるものの代表である．  
+帰納的学習のアルゴリズムの目的は学習例のセットからマッピングを推論することである．  
+例えば，分類の場合，モデルは入力特徴とクラスラベルの間のマッピングを学習する．  
+このような学習機がunseenのデータに対してうまく一般化するためにはそのアルゴリズムは学習データの分布に関連する一連の過程を用いて動作する．  
+この過程を帰納的バイアスと呼ぶ．帰納的バイアスや過程は制限する仮説空間や仮説空間の探索プロセスなど，複数の要因によって特徴づけられる．  
+これらのバイアスは与えられたタスクやドメインに置いてモデルが何をどのように学習するかに影響を与える．  
 
 
 ![](https://github.com/nissy-shota/Transfer-Learning/blob/main/Comprehensive-Hands-on-Guide/images/10.png)  
 
-transfer learning idea
+transfer learning idea  
 
-inductive transfer learning techniquesはソースタスクの帰納的バイアスをターゲットタスクの支援に利用する．
-これには，モデルの空間を限定してターゲとタスクの帰納的バイアスを調整したり，仮説空間を絞り込んだり，ソースタスクの知識を利用して探索プロセス自体を調整するなど様々な方法がある．
+inductive transfer learning techniquesはソースタスクの帰納的バイアスをターゲットタスクの支援に利用する．  
+これには，モデルの空間を限定してターゲとタスクの帰納的バイアスを調整したり，仮説空間を絞り込んだり，ソースタスクの知識を利用して探索プロセス自体を調整するなど様々な方法がある．  
 
 
 ![](https://github.com/nissy-shota/Transfer-Learning/blob/main/Comprehensive-Hands-on-Guide/images/11.png)  
@@ -196,76 +196,77 @@ iductive transferとは別に帰納的学習アルゴリズムはベイジアン
 
 ## Deep Transfer Learning Strategies
 
-深層学習は大きな進歩を挙げているが，必用な学習時間とデータ量は従来のMLシステムに比べて遥かに多い．
-CVやNLPなどの領域で最先端の性能をもつ様々な深層学習ネットワークが開発され，テストされている．
-これらの事前学習されたモデルやネットワークは深層学習における転移学習の基礎となり，deep transfer learningと呼ばれる．
+深層学習は大きな進歩を挙げているが，必用な学習時間とデータ量は従来のMLシステムに比べて遥かに多い．  
+CVやNLPなどの領域で最先端の性能をもつ様々な深層学習ネットワークが開発され，テストされている．  
+これらの事前学習されたモデルやネットワークは深層学習における転移学習の基礎となり，deep transfer learningと呼ばれる．  
 
 ### Off-the-shelf Pre-trained Models as Feature Extractors
 
-深層学習システムやモデルは異なる階層で（Layerの特徴の階層的な表現）で異なる特徴を学習するLayerをもつアーキテクチャである．
-最終的に最後のLayer（教室器学習の場合通常はFully connected layer）に接続され，最終的な出力が得られる．
-このレイヤー構造により，最終レイヤーを持たない事前学習済みのネットワークInception V3やVGGなどを他のタスクの固定的な特徴量抽出器として活用することができる．
+深層学習システムやモデルは異なる階層で（Layerの特徴の階層的な表現）で異なる特徴を学習するLayerをもつアーキテクチャである．  
+最終的に最後のLayer（教室器学習の場合通常はFully connected layer）に接続され，最終的な出力が得られる．  
+このレイヤー構造により，最終レイヤーを持たない事前学習済みのネットワークInception V3やVGGなどを他のタスクの固定的な特徴量抽出器として活用することができる．  
 
-**ここでの重要なアイデアは、事前に学習されたモデルの重み付けされた層を利用して特徴を抽出するだけで、新しいタスクのための新しいデータでの学習中にモデルの層の重みを更新しないということです。**
+**ここでの重要なアイデアは、事前に学習されたモデルの重み付けされた層を利用して特徴を抽出するだけで、新しいタスクのための新しいデータでの学習中にモデルの層の重みを更新しないということです。**  
 
-たとえば，最終分類層を持たないAlexNetを利用すると新しいドメインタスクからの画像を隠れ状態に基づいて4096次元のベクトルに変換し，ソースドメインタスクの知識をリヨ空いて，
-新しいドメインタスクから特徴を抽出できる．
+たとえば，最終分類層を持たないAlexNetを利用すると新しいドメインタスクからの画像を隠れ状態に基づいて4096次元のベクトルに変換し，ソースドメインタスクの知識を利用して，  
+新しいドメインタスクから特徴を抽出できる．  
 これはdeep neural networkを用いたtransfer learningを行う上で最も利用されている手法の一つ．
-ここで，事前に学習された規制の特徴量は実際に異なるタスクでどの程度機能するかという疑問は生じる
+ここで，事前に学習された規制の特徴量は実際に異なるタスクでどの程度機能するかという疑問は生じる  
 
 
 
-![](https://github.com/nissy-shota/Transfer-Learning/blob/main/Comprehensive-Hands-on-Guide/images/12.png)  
+![](https://github.com/nissy-shota/Transfer-Learning/blob/main/Comprehensive-Hands-on-Guide/images/12.png)    
 ![](https://github.com/nissy-shota/Transfer-Learning/blob/main/Comprehensive-Hands-on-Guide/images/13.png)  
 ![](https://github.com/nissy-shota/Transfer-Learning/blob/main/Comprehensive-Hands-on-Guide/images/14.png)  
-Performance of off-the-shelf pre-trained models vs. specialized task-focused deep learning models
 
-事前にトレーニングされたモデルの昨日が非常に特殊なタスクに焦点を当てた深層学習モデルよりも一貫して優れていることが明確にわかる．
+Performance of off-the-shelf pre-trained models vs. specialized task-focused deep learning models  
 
-### Fine Tuning Off-the-shelf Pre-trained Models
+事前にトレーニングされたモデルの昨日が非常に特殊なタスクに焦点を当てた深層学習モデルよりも一貫して優れていることが明確にわかる．  
 
-これは最終層(分類や回帰)を置き換えるだけではなく，前の層のいくつかを選択的に再学習する問手法．
-DNNは様々なハイパーパラメータをもつ高度に構成可能なアーキテクチャである．
-次の図は顔認証問題の例で，ネットワークの初期の階層が非常に一般的な特徴を学習し，上位層が非常にタスクに特化した特徴を学習していることを示唆する．
+### Fine Tuning Off-the-shelf Pre-trained Models  
+
+これは最終層(分類や回帰)を置き換えるだけではなく，前の層のいくつかを選択的に再学習する問手法．  
+DNNは様々なハイパーパラメータをもつ高度に構成可能なアーキテクチャである．  
+次の図は顔認証問題の例で，ネットワークの初期の階層が非常に一般的な特徴を学習し，上位層が非常にタスクに特化した特徴を学習していることを示唆する．  
 
 
 ![](https://github.com/nissy-shota/Transfer-Learning/blob/main/Comprehensive-Hands-on-Guide/images/15.png)  
 
 
-この知識を利用して再トレーニング中に特定の層を固定したり残りの層を必要に応じて微調整したりすることができる．
-この場合ネットワークの全体的なアーキテクチャに関する知識を活用し，その状態を再学習ステップの出発点として使用する．
-これにより，少ない学習時間でより良いパフォーマンスを得ることができる．
+この知識を利用して再トレーニング中に特定の層を固定したり残りの層を必要に応じて微調整したりすることができる．  
+この場合ネットワークの全体的なアーキテクチャに関する知識を活用し，その状態を再学習ステップの出発点として使用する．  
+これにより，少ない学習時間でより良いパフォーマンスを得ることができる．  
 
 ![](https://github.com/nissy-shota/Transfer-Learning/blob/main/Comprehensive-Hands-on-Guide/images/16.png)  
 
 ## Freezing or Fine-tuning?
 
 
-ネットワーク内のレイヤーをフリーズして昨日抽出昨日として使用する必用があるのか，それともプロセス内のレイヤーを微調整する必用があるのかという疑問が生じる
+ネットワーク内のレイヤーをフリーズして昨日抽出昨日として使用する必用があるのか，それともプロセス内のレイヤーを微調整する必用があるのかという疑問が生じる  
 ![](https://github.com/nissy-shota/Transfer-Learning/blob/main/Comprehensive-Hands-on-Guide/images/17.png)  
 
 ## Pre-trained Models
 
-転移学習の基本的な要件の一つはソースタスクで優れた性能を発揮するモデルの存在である．
-事前学習モデルは通常安定した状態まで学習されたモデルが達成した数百万のパラメータとウェイトの形で共有される．
+転移学習の基本的な要件の一つはソースタスクで優れた性能を発揮するモデルの存在である．  
+事前学習モデルは通常安定した状態まで学習されたモデルが達成した数百万のパラメータとウェイトの形で共有される．  
 
-- VGG-16
-- VGG-19
-- Inception V3
-- XCeption
-- ResNet-50
+- VGG-16  
+- VGG-19  
+- Inception V3  
+- XCeption  
+- ResNet-50  
 
-cv分野では以上のモデルがよく利用される．
+cv分野では以上のモデルがよく利用される．  
 
-- Word2Vec
-- GloVe
-- FastText
+- Word2Vec  
+- GloVe  
+- FastText  
+ 
+nlpタスクの場合性質が多様であるため，少し困難であるが，embedding modelを使用できる．   
 
-nlpタスクの場合性質が多様であるため，少し困難であるが，embedding modelを使用できる．
-
-最近では，以下の進捗があった．
-- Universal Sentence Encoder by Google
-- Bidirectional Encoder Representations from Transformers (BERT) by Google
+最近では，以下の進捗があった．  
+- Universal Sentence Encoder by Google  
+- Bidirectional Encoder Representations from Transformers (BERT) by Google  
 
 
 ## Types of Deep Transfer Learning
